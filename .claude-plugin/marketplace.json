@@ -1,0 +1,16 @@
+{
+  "name": "hillel",
+  "owner": {
+    "name": "Hillel International \u2014 Technology Services"
+  },
+  "metadata": {
+    "description": "Hillel International's internal Claude Code plugins."
+  },
+  "plugins": [
+    {
+      "name": "fluxx",
+      "source": "./plugins/fluxx",
+      "description": "Read and (with your approval) change Fluxx grants data with your own Fluxx API client. Writes are staged with a preview and sent only when you approve."
+    }
+  ]
+}
