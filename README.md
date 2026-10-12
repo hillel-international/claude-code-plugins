@@ -1,6 +1,6 @@
 # Hillel Claude Code plugins
 
-Private Claude Code plugin marketplace for Hillel International staff. Maintained by Technology Services (Jerry Feth).
+Claude Code plugin marketplace for Hillel International staff. Maintained by Technology Services (Jerry Feth). The repo is public and contains no credentials or Fluxx data: each person uses their own Fluxx API client, stored on their own machine.
 
 These plugins are for **Claude Code**: the CLI, or the desktop app's Code tab with the **Local** environment. They don't work in chat, Cowork, or cloud Code sessions.
 
@@ -14,7 +14,7 @@ Read Fluxx grants data, and change it with your approval, using **your own** Flu
 All sent changes are logged in `~/.fluxx/audit.log`.
 
 **Setup (once per person, about 10 minutes, with Jerry):**
-1. You need access to this repo, plus `git` and the GitHub CLI signed in (`gh auth login`).
+1. You need `git` installed. On a Mac, the first `git` command offers to install it. You don't need a GitHub account.
 2. In Fluxx, create an API client for yourself and copy the Client ID and Secret.
 3. In Claude Code:
    ```

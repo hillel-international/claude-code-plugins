@@ -1,7 +1,7 @@
 import json, subprocess, sys
 import os
 G = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "plugins", "fluxx", "scripts", "fluxx_guard.py")
-R = "/Users/jfeth/.claude/plugins/cache/hillel-org/fluxx/0.1.0"
+R = os.path.expanduser("~/.claude/plugins/cache/hillel/fluxx/0.1.0")
 CLI = R + "/scripts/fluxx.py"
 OLD = R.replace("0.1.0", "0.0.9") + "/scripts/fluxx_guard.py"
 cases = [
