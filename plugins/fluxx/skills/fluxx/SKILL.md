@@ -21,7 +21,7 @@ The user's API client carries their own Fluxx permissions. If Fluxx refuses some
 2. **Wait for the user to say yes.** Don't run `apply` on your own initiative.
 3. **Send** with `apply <pending_id>`, one change per call.
    - In default mode, the user gets an approval prompt that shows the change.
-   - In auto mode, the hook blocks `apply`. Give the user the exact `! ...` command from the block message, so they run it themselves.
+   - In auto mode, the hook blocks `apply`. Give the user both options from the block message: switch to Default mode and ask again, or paste the exact command into a separate Terminal window. Only in the Claude Code CLI can they type it here after `! `. That doesn't work in the desktop app's Code tab, where `!` just sends the line to Claude.
 4. If `apply` says `stale`, someone changed the record after you staged it. Re-read it, stage the change again, and show the new preview.
 
 Be careful with:

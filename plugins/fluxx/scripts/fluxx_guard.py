@@ -4,7 +4,8 @@
   permission rules, so the hook grants them; nothing reaches Fluxx without `apply`).
 - `fluxx.py apply <id>` -> in default/acceptEdits/plan mode, ask the human and show the
   staged change in the prompt. In auto, bypass, or an unknown mode, deny: those modes
-  can approve an `ask` without a human, so the person runs it themselves with `! ...`.
+  can approve an `ask` without a human, so the person switches to Default mode or runs it
+  themselves in Terminal (`! ...` only works in the CLI, not the desktop Code tab).
 - Shell commands that modify the plugin's files -> deny (protects this hook from Claude).
 - Shell commands that call the Fluxx API directly, read the stored secret,
   or touch ~/.fluxx/pending|applied|audit without going through fluxx.py -> deny.
@@ -132,8 +133,11 @@ def main(event):
                 decide("ask", "Send to Fluxx? " + describe(m.group(1)))
             else:
                 decide("deny", "This session's permission mode (%s) can't guarantee a human approves "
-                       "Fluxx writes. Show the user this change and ask them to run it themselves by "
-                       "typing: ! %s   -- %s" % (event.get("permission_mode"), cmd.strip(), describe(m.group(1))))
+                       "Fluxx writes. Show the user this change and give them two ways to send it: "
+                       "(1) switch this session to Default mode and ask again, which shows an approval "
+                       "prompt; or (2) paste this command into a separate Terminal window (in the Claude "
+                       "Code CLI they can instead type it here after `! `; that does NOT work in the "
+                       "desktop app): %s   -- %s" % (event.get("permission_mode"), cmd.strip(), describe(m.group(1))))
         elif protected and protected.search(outside_cli_call(cmd, cli)) and MODIFIES.search(bare(cmd)):
             decide("deny", "The Fluxx plugin's files can't be modified from Claude.")
         elif DIRECT.search(cmd) or (PENDING.search(cmd) and "fluxx.py" not in cmd):

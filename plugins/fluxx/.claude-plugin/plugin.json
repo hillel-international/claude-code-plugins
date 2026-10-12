@@ -1,7 +1,7 @@
 {
   "name": "fluxx",
   "displayName": "Fluxx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lets Claude Code read and (with your approval) change Fluxx grants data using your own Fluxx API client, limited to your Fluxx permissions. Every write is staged with a before/after preview and only sent when you approve it. For Fluxx admins in Claude Code (Local); does nothing in chat.",
   "author": {
     "name": "Hillel International — Technology Services"
